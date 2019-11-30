@@ -36,5 +36,6 @@ pipelines:
                     pipeline: demo_dev
                     stage: build
                     job: build
+                    s_file: yes
                     source: prata_artifacts/file.txt
                     destination: from_upstream/file.txt
