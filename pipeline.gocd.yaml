@@ -1,7 +1,7 @@
 # simple.gocd.yaml
 pipelines:
-  demo_dev:
-    group: demo
+  ingridients:
+    group: cooking
     materials:
       mygit:
         git: https://github.com/torczuk/gocd-sandbox
@@ -15,16 +15,16 @@ pipelines:
                     command: bash
                     arguments:
                       - -c
-                      - echo 'go cd rules' > file.txt
+                      - echo 'lets cook prata' > file.txt
               artifacts:
                 - build:
                     source: "*"
                     destination: prata_artifacts
   demo_dependency:
-    group: demo
+    group: cooking
     materials:
       demo_upstream:
-        pipeline: demo_dev
+        pipeline: ingridients
         stage: build
     stages:
       -  build:
@@ -33,7 +33,7 @@ pipelines:
               elastic_profile_id: "demo-app"
               tasks:
                 - fetch:
-                    pipeline: demo_dev
+                    pipeline: ingridients
                     stage: build
                     job: build
                     is_file: yes
