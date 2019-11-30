@@ -11,8 +11,11 @@ pipelines:
             build:
               elastic_profile_id: "demo-app"
               tasks:
-               - exec:
-                   command: date  | sed -e "s/ /_/g"  | xargs touch
-
-
-
+                - exec:
+                    command: bash
+                    arguments:
+                      - date  | sed -e "s/ /_/g"  | xargs touch
+              artifacts:
+                - build:
+                    source: "*.txt"
+                    destination: configuration
