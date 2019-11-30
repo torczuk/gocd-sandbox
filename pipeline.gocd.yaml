@@ -20,7 +20,7 @@ pipelines:
                 - build:
                     source: "*"
                     destination: prata_artifacts
-  demo_dependency:
+  mixing:
     group: cooking
     materials:
       demo_upstream:
@@ -39,3 +39,24 @@ pipelines:
                     is_file: yes
                     source: prata_artifacts/file.txt
                     destination: from_upstream/file.txt
+  serving:
+    group: cooking
+      materials:
+        mixing:
+          pipeline: mixing
+          stage: build
+        cleaning:
+          pipeline: cleaning
+          stage: build
+    stages:
+      - build:
+          jobs:
+            build:
+              elastic_profile_id: "demo-app"
+              tasks:
+                - fetch:
+                    pipeline: cleaning
+                    stage: build
+                    job: build
+                    is_file: yes
+                    source: cleaning_service/cleaning.txt
