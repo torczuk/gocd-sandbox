@@ -1,0 +1,17 @@
+# simple.gocd.yaml
+pipelines:
+  demo_dev:
+    group: demo
+    materials:
+      mygit:
+        git: git@github.com:torczuk/gocd-sandbox.git
+    stages:
+      - build:
+          jobs:
+            build:
+              tasks:
+               - exec:
+                   command: date  | sed -e "s/ /_/g"  | xargs touch
+
+
+
