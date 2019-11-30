@@ -8,8 +8,8 @@ pipelines:
     stages:
       - build:
           jobs:
-            elastic_profile_id: "demo-app"
-	    build:
+            build:
+              elastic_profile_id: "demo-app"
               tasks:
                - exec:
                    command: date  | sed -e "s/ /_/g"  | xargs touch
