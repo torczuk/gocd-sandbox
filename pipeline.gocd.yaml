@@ -17,5 +17,5 @@ pipelines:
                       - date  | sed -e "s/ /_/g"  | xargs touch
               artifacts:
                 - build:
-                    source: "*.txt"
+                    source: "*"
                     destination: configuration
