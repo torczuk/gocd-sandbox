@@ -14,8 +14,8 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
-                      - c
-                      - "touch some_file.txt"
+                      - -c
+                      - touch some_file.txt
               artifacts:
                 - build:
                     source: "*"
