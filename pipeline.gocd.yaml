@@ -14,8 +14,8 @@ pipelines:
                 - exec:
                     command: bash
                     arguments:
-                      - date  | sed -e "s/ /_/g"  | xargs touch
+                      - touch some_file.txt
               artifacts:
                 - build:
                     source: "*"
-                    destination: configuration
+                    destination: prata_artifacts
