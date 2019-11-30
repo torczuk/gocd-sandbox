@@ -4,7 +4,7 @@ pipelines:
     group: demo
     materials:
       mygit:
-        git: git@github.com:torczuk/gocd-sandbox.git
+        git: https://github.com/torczuk/gocd-sandbox
     stages:
       - build:
           jobs:
