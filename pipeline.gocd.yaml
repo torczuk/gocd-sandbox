@@ -26,3 +26,15 @@ pipelines:
       demo_upstream:
         pipeline: demo_dev
         stage: build
+    stages:
+      -  build:
+          jobs:
+            build:
+              elastic_profile_id: "demo-app"
+              tasks:
+                - fetch:
+                    pipeline: demo_dev
+                    stage: build
+                    job: build
+                    source: prata_artifacts/file.txt
+                    destination: from_upstream/file.txt
