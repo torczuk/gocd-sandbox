@@ -41,13 +41,13 @@ pipelines:
                     destination: from_upstream/file.txt
   serving:
     group: cooking
-      materials:
-        mixing:
-          pipeline: mixing
-          stage: build
-        cleaning:
-          pipeline: cleaning
-          stage: build
+    materials:
+      mixing:
+        pipeline: mixing
+        stage: build
+      cleaning:
+        pipeline: cleaning
+        stage: build
     stages:
       - build:
           jobs:
