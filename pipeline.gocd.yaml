@@ -55,7 +55,7 @@ pipelines:
               elastic_profile_id: "demo-app"
               tasks:
                 - fetch:
-                    pipeline: cooking
+                    pipeline: cleaning
                     stage: build
                     job: build
                     is_file: yes
