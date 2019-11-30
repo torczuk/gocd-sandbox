@@ -60,3 +60,10 @@ pipelines:
                     job: build
                     is_file: yes
                     source: cleaning_service/cleaning.txt
+                - fetch:
+                    pipeline: ingridients/mixing # cause I need to specify path
+                    stage: build
+                    job: build
+                    is_file: yes
+                    source: prata_artifacts/file.txt
+                    destination: from_upstream/file.txt
